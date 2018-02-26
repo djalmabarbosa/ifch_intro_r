@@ -1,6 +1,6 @@
 # Abrindo dados no R
 
-Neste tutorial vamos cobrir uma série de métodos disponíveis para abrirmos arquivos de texto. excel e de outros softwares de análise de dadoss no R. Vamos dar atenção aos argumentos das funções de forma a solucionar dificuldades de abertura de dados com diferentes características ou em sistemas operacionais variados.
+Neste tutorial vamos cobrir uma série de métodos disponíveis para abrirmos arquivos de texto, editores de planiljas e de outros softwares de análise de dadoss no R. Vamos dar atenção aos argumentos das funções de forma a solucionar dificuldades de abertura de dados com diferentes características ou em sistemas operacionais variados.
 
 ## Pacotes no R
 
@@ -12,7 +12,7 @@ Para instalarmos um novo pacote de R que esteja disponível no CRAN -- "The Comp
 install.packages("beepr")
 ```
 
-Note que o nome do pacote deve estar em parêntese. Além disso, é possível que você tenha sido perguntad@ sobre de qual servidor do CRAN você quer baixar o pacote. A escolha em nada muda o resultado, exceto pelo tempo de duração.
+Note que o nome do pacote deve estar em parêntese. Além disso, é possível que você tenha sido perguntad@ sobre de qual servidor do CRAN você quer baixar o pacote. A escolha em nada muda o resultado, exceto o tempo de duração do download.
 
 Uma vez que um pacote foi instalado, ele está disponível em seu computador, mas não ainda para uso. Apenas depois de executarmos a função _library_ é que teremos o pacote em nossa "biblioteca" de funções.
 
@@ -48,7 +48,7 @@ setwd("C:\\User\\Documents")
 
 Simples e muito útil para evitar escrever "labirintos de pastas" ao importar dados.
 
-Um detalhe fundamental para quem usa Windows: os caminhos devem ser escritos com duas barras no lugar de uma, como no exemplo acima. É uma chatice e a melhor solução é mudar definitivamente para linux.
+Um detalhe fundamental para quem usa Windows: os caminhos devem ser escritos com duas barras no lugar de uma, como no exemplo acima. É uma chatice e a melhor solução é mudar definitivamente para Linux e nunca mais pagar por software proprietário.
 
 Vamos supor que você queira abrir diversos arquivos ("file1.txt" e "file2.txt", por exemplo) que estão em uma pasta diferente do seu wd, por exemplo "C:\\\\User\\\\Downloads\\\\". Mudar o wd pode não ser conviente, mas escrever o caminho todo é menos ainda. Uma solução é criar usar _file.path_ para cadar arquivo armazenando a pasta e o caminho dos arquivos em algum objeto.
 
@@ -69,7 +69,7 @@ Voltando à função _read.table_, vamos examinar os argumentos seguintes a _fil
 Para facilitar nossa vida, vamos usar como argumento "file" o endereço dos dados no repositório do curso. O primeiro arquivo está no enderço que guardaremos em "file1".
 
 ```{r}
-file1 <- "https://raw.githubusercontent.com/leobarone/FLS6397/master/data/bf_amostra_hv.csv"
+file1 <- "https://raw.githubusercontent.com/leobarone/ifch_intro_r/master/data/bf_amostra_hv.csv"
 ```
 
 Esse arquivo contém cabeçalho, ou seja, a primeira linha traz o nome das colunas. Por esta razão, informaremos "header = T". Ignore por hora o argumento "sep".
@@ -86,7 +86,7 @@ dados <- read.table(file1, header = F, sep = ",")
 head(dados)
 ```
 
-Em primeiro lugar, o nome das variáveis é inserido automaticamente e na sequência V1, V2, ..., Vn, onde n é o número de colunas. Além disso, os nomes das variávei é lido como se fosse uma observação. Disso resulta que todas as variáveis serão lidas com um texto na primeira coluna, resultando, em "character" ou "factor" a depender das características dos dados.
+Em primeiro lugar, o nome das variáveis é inserido automaticamente e na sequência V1, V2, ..., Vn, onde n é o número de colunas. Além disso, os nomes das variáveis é lido como se fossem uma observação. A consequência é que todas as variáveis serão lidas com um texto na primeira coluna, resultando em "character" ou "factor" a depender das características dos dados.
 
 ```{r}
 str(dados)
@@ -95,7 +95,7 @@ str(dados)
 Vamos observar agora uma versão dos dados que não contém a primeira linha como nome das variáveis. Os dados estão no url armazenado em file2:
 
 ```{r}
-file2 <- "https://raw.githubusercontent.com/leobarone/FLS6397/master/data/bf_amostra_nv.csv"
+file2 <- "https://raw.githubusercontent.com/leobarone/ifch_intro_r/master/data/bf_amostra_nv.csv"
 ```
 
 Como já havíamos visto, quando não há cabeçalho na primeira linha, os nomes são inseridos automaticamente:
@@ -112,7 +112,7 @@ dados <- read.table(file2, header = T, sep = ",")
 head(dados)
 ```
 
-A primeira linha de dados se torna o nome das variáveis (inclusive os números antecedidos por um "X").
+A primeira linha de dados se torna o nome das variáveis (inclusive os números, que aparecem antecedidos por um "X").
 
 Ambos arquivos têm o mesmo separador: vírgula. O argumento "sep" permite indicar qual é o separador.
 
@@ -120,10 +120,10 @@ Não há muita graça em observar os exemplos com separadores diferente, mas vej
 
 ```{r}
 # Ponto e virgula
-file3 <- "https://raw.githubusercontent.com/leobarone/FLS6397/master/data/bf_amostra_hp.csv"
+file3 <- "https://raw.githubusercontent.com/leobarone/ifch_intro_r/master/data/bf_amostra_hp.csv"
 dados <- read.table(file3, header = T, sep = ";")
 
-file4 <- "https://raw.githubusercontent.com/leobarone/FLS6397/master/data/bf_amostra_ht.csv"
+file4 <- "https://raw.githubusercontent.com/leobarone/ifch_intro_r/master/data/bf_amostra_ht.csv"
 dados <- read.table(file4, header = T, sep = "\t")
 ```
 
@@ -178,7 +178,7 @@ Note que, agora, "uf" e "munic" são importadas como "character".
 
 Finalmente, é comum termos problemas para abrir arquivos que contenham caracteres especiais, pois há diferentes formas do computador transformar 0 e 1 em vogais acentuadas, cecedilha, etc. O "encoding" de cada arquivo varia de acordo com o sistema operacional e aplicativo no qual foi gerado.
 
-Para resolver este problema, informamos ao R o parâmetro "fileEncoding", que indica qual é o "encoding" esperado do arquivo. Infelizmente não há formas automáticas de descobrir o "encoding" de um arquivo e é preciso conhecer como foi gerado -- seja por que você produziu o arquivo ou por que teve acesso à documentação -- ou partir para tentativa e erro. Alguns "encodings" comuns são "latin1", "latin2" e "utf8", mas há diversos outros. Comoo arquivo com o qual estamos trabalhando não contém caracteres especiais, não é preciso fazer nada.
+Para resolver este problema, informamos ao R o parâmetro "fileEncoding", que indica qual é o "encoding" esperado do arquivo. Infelizmente não há formas automáticas infalíveis de descobrir o "encoding" de um arquivo e é preciso conhecer como foi gerado -- seja por que você produziu o arquivo ou por que você teve acesso à documentação -- ou partir para tentativa e erro. Alguns "encodings" comuns são "latin1", "latin2" e "utf8", mas há diversos outros. Como arquivo com o qual estamos trabalhando não contém caracteres especiais, não é preciso fazer nada.
 
 ## Tibbles e tidyverse
 
@@ -230,10 +230,9 @@ Mais econômico, não?
 
 _read\_csv_ e _read\_tsv_ são as versões de _read\_delim_ para arquivos separados por vírgula e arquivos separado por tabulações.
 
-Do ponto de vista forma, as três funções de importação de dados de texto do pacote _readr_ geram objetos que pertecem à classe de _data frames_ e também às classes _tbl_ e _tbl\_df_, que são as classes de _tibbles_.
+Do ponto de vista formal, as três funções de importação de dados de texto do pacote _readr_ geram objetos que pertecem à classe de _data frames_ e também às classes _tbl_ e _tbl\_df_, que são as classes de _tibbles_ (um objeto pode ser de mais de uma clase).
 
 Ainda no pacote _readr_, duas funções são bastante úteis
-
 
 ## Outra gramática para dados em R: data.table
 
@@ -243,13 +242,11 @@ No curso vamos trabalhar com duas "gramáticas" para dados em R: a dos pacotes b
 library(data.table)
 ```
 
-
 Há, porém, duas funções excepcionalmente boas neste pacote: _fread_ e _fwrite_, que servem, respectivamente, para importar e exportar dados de texto.
 
 ```{r}
 class(dados)
 ```
-
 
 As duas grandes vantagens de utilizar _fread_ são: a função detecta os automaticamente as características do arquivo de texto para definir delimitador, cabeçalho, tipos de dados das colunas, etc; e é extremamente rápida em comparação às demais. "f" vem de "Fast and friendly file finagler".
 
@@ -277,7 +274,7 @@ library(readxl)
 
 ## Um pouco sobre donwload e manipulação de arquivos
 
-Nosso exemplo será a Pesquisa Perfil dos Municípios Brasileiros de 2005, produzida pelo IBGE e apelidade de MUNIC. Diferentemente das demais funções deste tutorial, precisamos baixar o arquivo para o computador e acessá-lo localmente. Faça o download diretamente do [site do IBGE](ftp://ftp.ibge.gov.br/Perfil_Municipios/2005/base_MUNIC_2005.zip) e descompacte. Ou, mais interessante ainda, vamos automatizar o download e descompactação do arquivo (aviso: pode dar erro no Windowns e tentaremos corrigir na hora).
+Nosso exemplo será a Pesquisa Perfil dos Municípios Brasileiros de 2005, produzida pelo IBGE e apelidade de MUNIC. Diferentemente das demais funções deste tutorial, precisamos baixar o arquivo para o computador e acessá-lo localmente. Faça o download diretamente do [site do IBGE](ftp://ftp.ibge.gov.br/Perfil_Municipios/2005/base_MUNIC_2005.zip) e descompacte. Ou, mais interessante ainda, vamos automatizar o download e descompactação do arquivo (aviso: pode dar erro no Windows e tentaremos corrigir na hora -- use Linux!).
 
 Em primeiro lugar, vamos guardar o endereço url do arquivo em um objeto e fazer o download. Note que na função _download.file_ o primeiro argumento é o url e o segundo é o nome do arquivo que será salvo (nota: você pode colocá-lo em qualquer pasta utilizando _file.path_ para construir o caminho completo para o arquivo a ser gerado).
 
@@ -308,21 +305,20 @@ file.remove("temp.zip")
 
 ## Voltando às planilhas
 
-Para não repetir o nome do arquivo diversas vezes, vamos criar o objeto "arq" que contém o endereço do arquivo no seu computador (ou só o nome do arquivo entre aspas se você tivê-lo no seu wd):
+Para não repetir o nome do arquivo diversas vezes, vamos criar o objeto "arquivo" que contém o endereço do arquivo no seu computador (ou só o nome do arquivo entre aspas se você tivê-lo no seu wd):
 
 ```{r}
 arquivo <- "Base 2005.xls"
 ```
-
 Com _excel\_sheets_ examinamos quais são as planilhas existentes do no arquivo:
 
 ```{r, echo = F, results = 'hide'}
 excel_sheets(arquivo)
 ```
 
-No caso, temos 11 planilhas diferentes (e um bocao de mensagens de erro estranhas). O dicionário, para quem já trabalhou alguma vez com a MUNIC, não é uma base de dados, apenas textos espalhados entre células. As demias, no entanto, têm formato adequado para _data frame_.
+No caso, temos 11 planilhas diferentes (e um bocado de mensagens de erro estranhas). O dicionário, para quem já trabalhou alguma vez com a MUNIC, não é uma base de dados, apenas textos espalhados entre células. As demais, no entanto, têm formato adequado para _data frame_.
 
-Vamos importar os dados da planilha "Variáveis externas". Todas duas maneiras abaixo se equivalem:
+Vamos importar os dados da planilha "Variáveis externas". As duas maneiras abaixo se equivalem:
 
 ```{r, echo = F, results = 'hide'}
 # 1
@@ -350,13 +346,11 @@ Basicamente, há cinco funções de importação de dados em _haven_: _read\_sas
 
 Vamos usar como exemplo o [Latinobarômetro 2015](http://www.latinobarometro.org/latContents.jsp), que está disponível para SAS, Stata, SPSS e R. Como os arquivos são grandes demais e o portal do Latinobarômetro é "cheio de javascript" (dá mais trabalho pegar dados de um portal com funcionalidades construídas nesta linguagem), vamos fazer o processo manual de baixar os dados, descompactá-los e abrí-los. Vamos ignorar SAS por razões que não interessam agora e por não ser uma linguagem popular nas ciências se sociais, mas se você tiver interesse em saber mais, me procure.
 
-Deixo abaixo uma breve descrição do Latinobarômetro que "roubei" de outro curso que ministrei. É possível que façamos exercícios com o Latinobarômetro no futuro, dado que é um banco de dados com muitas (muitas mesmo) variáveis categóricas, posto que é survey.
+Deixo abaixo uma breve descrição do Latinobarômetro que "roubei" de outro curso que ministrei (em inglês). O Latinobarômetro dado que é um banco de dados com muitas (muitas mesmo) variáveis categóricas, posto que é survey.
 
-#### 2011 Latinobarometer
+#### 2015 Latinobarometer
 
-The second dataser is the 2015 Latinobarometer. This is a very popular survey on democracy and elections in Latin America and the original can be found [here](http://www.latinobarometro.org/latContents.jsp). Latinobarometer contains data on several Latin American Countries. We are going to use the data on Brazil only. "Barometers" are very good source of public opinion data regarding issues of political regime, civil liberties, economic performance of governments and etc. I am sure this dataset can be source of lots of dissertations of students in political economy and comparative politics.
-
-We will use the dataset to formulate hypothesis about the brazilian electorate and explore our creativity. This is why it will be very important that we spend some time exploring the dictionary, whose .pdf is available both in [english](https://github.com/leobarone/IPSA_USP_EADA_2017/blob/master/Data/Latinobarometro_2011_eng.pdf) and [spanish](https://github.com/leobarone/IPSA_USP_EADA_2017/blob/master/Data/Latinobarometro_2011_esp.pdf) (although not in portuguese, even though it exists). It is a consolidated survey, so don't be frustrated if the data you are looking for is not ther and look for something else.
+"The second dataset is the 2015 Latinobarometer. This is a very popular survey on democracy and elections in Latin America and the original can be found [here](http://www.latinobarometro.org/latContents.jsp). Latinobarometer contains data on several Latin American Countries. We are going to use the data on Brazil only. "Barometers" are very good source of public opinion data regarding issues of political regime, civil liberties, economic performance of governments and etc. I am sure this dataset can be source of lots of dissertations of students in political economy and comparative politics."
 
 ## Abrindo os dados com haven
 
@@ -364,11 +358,11 @@ Vejamos o uso das funções em arquivos de diferentes formatos:
 
 ```{r}
 # SPSS
-lat <- read_spss("/home/acsa/FLS/Latinobarometro_2015_Eng.sav")
+latino_barometro <- read_spss("/home/acsa/FLS/Latinobarometro_2015_Eng.sav")
 head(lat)
 
 # Stata
-lat <- read_stata("/home/acsa/FLS/Latinobarometro_2015_Eng.dta")
+latino_barometro <- read_stata("/home/acsa/FLS/Latinobarometro_2015_Eng.dta")
 head(lat)
 ```
 
@@ -389,7 +383,6 @@ Para salvar um arquivo .RData sem usar o "botão do disquete", use a função _s
 ```{r}
 save.image("myWorkspace.RData")
 ```
-
 Para abrir um arquivo .RData, por exemplo, o do Latinobarômetro ou o que você acabou de salvar, use a função _load_:
 
 ```{r}

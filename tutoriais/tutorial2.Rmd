@@ -1,15 +1,4 @@
----
-title: "Operações matemáticas, vetores e matrizes"
-author: "Leonardo Sangali Barone"
-date: "March 20, 2017"
-output: pdf_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Começando do zero - O básico do R
+# Voltando ao zero - O básico do R
 
 No tutorial anterior, começamos "do meio", ou seja, fizemos a primeira incursão na linguagem R aprendendo um pouco sobre _data frames_. Vamos, no presente tutorial, "começar do zero" e aprender sobre os aspectos elementares da linguagem R para, na etapa seguinte, avançar nosso conhecimento sobre _data frames_ e demais aspectos da linguagem.
 
@@ -65,7 +54,7 @@ O outro uso é sinônimo de objeto no R. Nos referimos à "variável x", quando 
 
 Nos tutoriais, vamos fazer uso de variável com ambos significados. Fique atent@, mas com o tempo você se acostumará.
 
-Voltando às operações matemáticas, vamos criar uma variável "x" com o valor 42. Ao criar uma variável que armazena apenas um número, estamos criando um vetor atômico (pois, vetores atômicos são os vetores de tamanho 1).
+Voltando às operações matemáticas, vamos criar uma variável "x" com o valor 42. Ao criar uma variável que armazena apenas um número, estamos criando um vetor atômico (pois vetores atômicos são os vetores de tamanho 1).
 
 ```{r}
 x <- 42
@@ -112,7 +101,7 @@ z2 <- x + y
 z3 <- ((x / 5 ) * 9) + 32
 ```
 
-Veja que na última operação utilizamos diversos parênteses. (Ei! A fórmula acima é conhecida, não?) As regras para o uso de parênteses no R em operações matemáticas são semelhantes às da aritmética "de papel e caneta". Os parênteses são executados sempre de dentro para fora. Aliás, essa regra vale em geral no R, ou seja, para aplicação de quaisquer funções, e não apenas para as operações matemáticas.
+Veja que na última operação utilizamos diversos parênteses. (Ei! A fórmula acima é conhecida, não?) As regras para o uso de parênteses no R em operações matemáticas são semelhantes às da "aritmética de papel e caneta". Os parênteses são executados sempre de dentro para fora. Aliás, essa regra vale em geral no R, ou seja, para aplicação de quaisquer funções, e não apenas para as operações matemáticas.
 
 ## Classes dos vetores atômicos
 
@@ -141,7 +130,7 @@ Aproveitando o embalo dos vetores atômicos, vamos ver um pouco mais sobre vetor
 
 ```{r}
 vetor_numerico <- c(42, 7, 999, 3.14)
-vetor_texto <- c("texto", "a", 'jota', "Miriam", "4")
+vetor_texto <- c("Miriam", "a", 'jota', "TRUE", "4")
 vetor_logico <- c(TRUE, FALSE, F, F, T)
 class(vetor_numerico)
 class(vetor_texto)
@@ -172,7 +161,7 @@ Você consegue identificar as regras de combinação de tipos de dados diferente
 
 ## Sequências
 
-Dá um trabalho danada criar uma sequência de números de, por exemplo, 42 a 66. Ou sequências ainda maiores. Uma maneira simples (mas não a única), de gerar uma sequência de inteiros em R é utilizar ":". Veja o exemplo:
+Dá um trabalho danado criar uma sequência de números de, por exemplo, 42 a 66. Ou sequências ainda maiores. Uma maneira simples (mas não a única), de gerar uma sequência de inteiros em R é utilizar ":". Veja o exemplo:
 
 ```{r}
 sequencia <- 42:66
@@ -281,7 +270,7 @@ duas_semanas <- c(semana_1, semana_2)
 
 E se quisermos extrair elementos em apenas uma ou algumas posições de um vetor?
 
-(Ei, esta é uma parte bem importante da linguagem R).
+(Ei, esta é uma parte bem importante da linguagem R! Faça com calma, por mais boba que pareça).
 
 Quando queremos selecionar elementos de um vetor (ou, no futuro, de uma matriz ou de um _data frame_) usamos colchetes [] ao final do objeto. Vetores são objetos com uma única dimensão, então tudo que precisamos fazer é colocar o número da posição que queremos dentro dos colchetes. Chamamos esse procedimento em inglês de "subset" (no português, "selecionar um subconjunto").
 
@@ -319,7 +308,7 @@ semana_1[dias_uteis]
 
 ## Exercício:
 
-- Crie dois novos vetores. No primeiro, anote (invente) o número de palavras que você escreveu para sua tese/dissertação em cada mês, considerando os últimos seis meses (setembro a fevereiro). No segundo, anote (chute, novamente) quantos litros de café você tomou em cada mês. 
+- Crie dois novos vetores. No primeiro, anote (invente) o número de palavras que você escreveu para sua tese/dissertação/pesquisa em cada mês, considerando os últimos seis meses (setembro a fevereiro). No segundo, anote (chute, novamente) quantos litros de café você tomou em cada mês. 
 - Nomeie os elementos dos 2 vetores. 
 - Calcule sua produtividade em "palavras por Litro de café". Atribua o resultado a um novo vetor
 - Gere um subcojunto do novo vetor com a produtividade no final 2016 e outro com a produtividade no começo de 2017.
@@ -376,7 +365,7 @@ Usamos o vetor "selecao" para fazer o subconjunto do vetor de dados de consumo d
 litros_cafe[selecao]
 ```
 
-Para vetores pequenos, o procedimento adotado para gerar subconjuntos parece desnecessariamente trabalhos. Mas imagine agora que você queira observar os votos de todos os candidatos que atendam a determinada condição -- por exemplo, teremo gastos de campanha acima de determinado patarmar. Com uma variável (gasto de campanha) você pode gerar um vetor de seleção que permite gerar o subconjunto desejado.
+Para vetores pequenos, o procedimento adotado para gerar subconjuntos parece desnecessariamente trabalhoso. Mas imagine agora que você queira observar os votos de todos os candidatos que atendam a determinada condição -- por exemplo, terem gastos de campanha acima de determinado patarmar. Com uma variável (gasto de campanha) você pode gerar um vetor de seleção que permite gerar o subconjunto desejado.
 
 Voltaremos em variações desse assunto em diversos momentos no futuro.
 
@@ -449,8 +438,9 @@ Sem ordenarmos, não podemos comparar os níveis e estamos assumindo a variável
 Para ordernar os níveis de um vetor de fatores, temos que informar alguns parâmetros adicionais -- _order_ e _levels_ -- ao criá-lo:
 
 ```{r}
-f_tamanho <- factor(tamanho, order = T, levels <- c("baixo", "medio", "alto"))
+f_tamanho <- factor(tamanho, ordered = T, levels <- c("baixo", "medio", "alto"))
 print(f_tamanho)
+
 ```
 Note que a informação sobre os "levels" acompanha a ordem informada, que, neste caso, é diferente da alfabética. Comparações entre os níveis fazem sentido se a variável for ordinal:
 
@@ -478,7 +468,7 @@ Durante o curso, utilizaremos poucas ou nenhuma vez matrizes. Há uma razão par
 
 Para matemáticos, matrizes são objetos com uma álgebra própria e parte de uma área denominada Álgebra Linear. Por exemplo, a multiplicação de matrizes, se você lembra dela de seu período de escola ou graduação, segue regras e tem propriedades diferentes da multiplicação de números. Apesar do R ter uma "gramática" para Álgebra Linear (que lembra o MATLAB e Octave), ela não nos interessa agora e a deixaremos de lado.
 
-Para criarmos um matriz, precisamos de um vetor que contenha o número de elementos a serem inseridos em uma matriz. Para uma matriz de 3 linhas e 3 colunas, precisamos de um vetor de 9 elementos, a exemplo do vetor gerado pelo comando "1:9".
+Para criarmos uma matriz, precisamos de um vetor que contenha o número de elementos a serem inseridos em uma matriz. Para uma matriz de 3 linhas e 3 colunas, precisamos de um vetor de 9 elementos, a exemplo do vetor gerado pelo comando "1:9".
 
 Há duas maneiras de "preencher" a matriz: pelas linhas ("byrow = T") ou pelas colunas ("byrow = F"). Veja os exemplos abaixo e tente compreender o funcionamento de _matrix_:
 
@@ -520,7 +510,7 @@ colnames(cafe) <- fregueses
 print(cafe)
 ```
 
-O processo de nomear as linhas e colunas poderia ser realizado no momento em que a matriz foi gerada com o usdo do argumento _dimnames_, como no exemplo:
+O processo de nomear as linhas e colunas poderia ser realizado no momento em que a matriz foi gerada com o uso do argumento _dimnames_, como no exemplo:
 
 ```{r}
 cafe <- matrix(vetor_cafe, byrow = FALSE, nrow = 5,
@@ -533,7 +523,7 @@ E se quisermos trocar as linhas pelas colunas -- processo conhecido como transpo
 t(cafe)
 ```
 
-Se quisermos juntar os três vetores originais como se fosse colunas, podemos usar a função _cbind_.
+Se quisermos juntar os três vetores originais como se fossem colunas, podemos usar a função _cbind_.
 
 ```{r}
 cbind(beatriz, pedro, mateus)
@@ -576,7 +566,7 @@ Podemos também relizar operações entre matrizes de mesmas dimensões que cons
 matrix(1:9, byrow = TRUE, nrow = 3) + matrix(1:9, byrow = FALSE, nrow = 3)
 ```
 
-Tanto sobre matriz para chegarmos ao que realmente importa: subconjuntos de matrizes. Com vetores, usamos colchetes para produzirmos subconjuntos. As regras que aprendemos para vetores valem para matrizes. A diferença é que matrizes -- e também _data frames_ -- são objetos com duas dimensões (linha e coluna). Portanto, ao extrairmos um subconjunto, precisamos informar as duas dimensões no colchetes, primeiro linha, depois coluna, separadas por vírgula. Se deixamos uma das dimensões em branco, estamos selecionando todos os elementos daquela dimensão.
+Tanto sobre matriz para chegarmos ao que realmente importa: subconjuntos de matrizes. Com vetores, usamos colchetes para produzirmos subconjuntos. As regras que aprendemos para vetores valem para matrizes. A diferença é que matrizes -- e também _data frames_ -- são objetos com duas dimensões (linhas e colunas). Portanto, ao extrairmos um subconjunto, precisamos informar as duas dimensões nos colchetes, primeiro linha, depois coluna, separadas por vírgula. Se deixamos uma das dimensões em branco, estamos selecionando todos os elementos daquela dimensão.
 
 Vamos a uma série de exemplos para compreender as regras de subconjunto de matrizes.
 
@@ -630,7 +620,7 @@ cafe["Quarta",]
 
 ## Exercício
 
-Subconjunto de matrizes são fundamentais para o futuro do curso. Seja criativ@ e faça 6 exemplos seus com a matriz "cafe" com a qual trabalhamos.
+Subconjunto de matrizes são fundamentais para o futuro do curso. Seja criativ@ e faça alguns poucos exemplos seus com a matriz "cafe" com a qual trabalhamos.
 
 ## Paramos por aqui
 
