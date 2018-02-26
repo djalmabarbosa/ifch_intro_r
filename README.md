@@ -1,8 +1,8 @@
-# Introdução ao R
+# R para iniciantes
 
 Professor: Leonardo Sangali Barone
 
-Local: IFCH-Unicamp
+Local: IFCH-Unicamp, sala IH02
 
 Data: 27/02/2018, das 14h as 18h, e 28/02/2018, das 9h às 12h e das 14h às 17h 
 
@@ -10,7 +10,7 @@ Data: 27/02/2018, das 14h as 18h, e 28/02/2018, das 9h às 12h e das 14h às 17h
 
 ## Tutoriais
 
-- Básico da Linguagem e Data Frame
+- [Tutorial 1](https://github.com/leobarone/nepo_intro_r/blob/master/tutoriais/tutorial1.Rmd) - Básico da Linguagem e introdução a Data Frames 
 - Operações matemáticas, vetores e matrizes
 - Condicionais, loops e funções
 - Abrindo dados no R

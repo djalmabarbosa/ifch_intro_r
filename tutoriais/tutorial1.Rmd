@@ -1,14 +1,3 @@
----
-title: "Básico da Linguagem e Data Frame"
-author: "Leonardo Sangali Barone"
-date: "March 13, 2017"
-output: pdf_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Começando pelo meio: data frames
 
 Uma característica distintiva da linguagem de programação R é ter sido desenvolvida para a análise de dados. E quando pensamos em análise de dados, a protagonista do show é a _base de dados_ ou, como vamos conhecer a partir de agora, __data frame__.
@@ -73,19 +62,19 @@ Antes de avançar, vamos usar o __help__ (documentação) do R para descobrir o 
 
 Você pode ler com calma antes de avançar.
 
-Se quiseremos olhar para os dados que acabamos de carregar utilizamos a função _View_ (com V maiúsculo, algo pouco usual em R):
+Se quiseremos olhar para os dados que acabamos de carregar utilizamos a função _View_ (com V maiúsculo -- letras maiúsculas são pouco usuais nos nomes de funções em R):
 
 ```{r}
 View(mtcars)
 ```
 
-Com apenas 32 observações, não fica tão difícil "olhar" para os dados. Mas e se estívessemos trabalhando com, por exemplo, o total de candidatos vereadores no Brasil em 2016 (aprox. meio milhão de candidatos)? Seria útil utilizar o comando _View_?
+Com apenas 32 observações, não fica tão difícil "olhar" para os dados. Mas e se estívessemos trabalhando com, por exemplo, o total de candidatos vereadores no Brasil em 2016 (aprox. meio milhão de candidatos)? Seria o comando _View_ seria útil?
 
 ## Do editor de planilhas ao R - parte 1
 
-A partir desse ponto no curso vamos resistir à tentação de "olhar" para os dados. O hábito de quem utiliza com editores de planilha como MS Excel ou Libre Office, ou ainda com algums softwares de análise de dados como SPSS e Minitab, é trabalhar "olhando" para os dados, ou seja, para os valores de cada célula de uma base dados.
+A partir desse ponto no curso vamos resistir à tentação de "olhar" para os dados. O hábito de quem trabalha com editores de planilha como MS Excel ou Libre Office, ou ainda com alguns softwares de análise de dados como SPSS e Minitab, é trabalhar "olhando" para os dados, ou seja, para os valores de cada célula de uma base dados.
 
-Você perceberá em pouco tempo que isso não é necessário. Na verdade, é contraproducente. Nas primeiras aulas vamos nos munir de ferramentas que nos permitirão conhecer os dados sem olhá-los diretamente.
+Você perceberá em pouco tempo que isso não é necessário. Na verdade, é contraproducente. Em breve vamos nos munir de ferramentas que nos permitirão conhecer os dados sem olhá-los diretamente.
 
 ## Head no lugar de View
 
@@ -95,9 +84,9 @@ Por exemplo, podemos substituir a função _View_ pela função _head_. Veja o r
 head(mtcars)
 ```
 
-Com apenas as 6 primeiras linhas do _data frame_ temos noção de todo o conjunto. Sabemos rapidamente que os nomes dos carros são o nome de cada uma das linhas, e que o nome das colunas indicam qual característica está armazenada coluna (lembra-se da documentação de _mtcars_ que você acabou de ler).
+Com apenas as 6 primeiras linhas do _data frame_ temos noção de todo o conjunto. Sabemos rapidamente que os nomes dos carros são o nome de cada uma das linhas, e que o nome das colunas indicam qual característica está armazenada coluna (lembre-se da documentação de _mtcars_ que você acabou de ler).
 
-Alternativamente, podemos usar a função _str_ (atalho para "structure"):
+Alternativamente, podemos usar a função _str_ (abreviação de "structure"):
 
 ```{r}
 str(mtcars)
@@ -123,15 +112,15 @@ names(mtcars)
 
 ## Argumentos ou parâmetros das funções
 
-Note que em todas as funções que utilizamos até agora, _mtcars_ está dentro do parêntesis que segue o nome da função. Essa __sintax__ é característica das funções de R. O que vai entre parêntesis são os __argumentos__ ou __parâmetros__ da função, ou seja, os "inputs" que serão transformados.
+Note que em todas as funções que utilizamos até agora, _mtcars_ está dentro do parênteses que segue o nome da função. Essa __sintaxe__ é característica das funções de R. O que vai entre parêntesis são os __argumentos__ ou __parâmetros__ da função, ou seja, os "inputs" que serão transformados.
 
-Uma função pode receber mais de um argumento. Pode também ter argumentos não obrigatórios, ou seja, para os quais não é necessário informar nada se você não quiser alterar os valores pré-definidos. Por exemplo, a função _head_ contém o argumento _n_, que se refere ao número de linhas a serem __impressas__ na tela, pré-estabelecido em 6 (você pode conhecer os argumentos da função na documentação do R usando _?_ antes do nome da função). Para alterá-lo para 10, por exemplo, basta fazer:
+Uma função pode receber mais de um argumento. Pode também haver argumentos não obrigatórios, ou seja, para os quais não é necessário informar nada se você não quiser alterar os valores pré-definidos. Por exemplo, a função _head_ contém o argumento _n_, que se refere ao número de linhas a serem __impressas__ na tela, pré-estabelecido em 6 (você pode conhecer os argumentos da função na documentação do R usando _?_ antes do nome da função). Para alterar o parâmetro _n_ para 10, por exemplo, basta fazer:
 
 ```{r}
 head(x = mtcars, n = 10)
 ```
 
-_x_ é o argumento que já havíamos utilizado anteriormente e indica em que objeto a função _head_ será aplicada. Dica: você pode omitir tanto "x =" quanto "n =" se você já conhecer a ordem de cada argumento no uso da função. Veja que neste caso estamos utilizando o símbolo "=" sem fazer a atribuição de dados a um objeto, mas para atribuir valores (ou objetos) aos argumento de uma função. Para não haver confusão é preferível usar o símbolo "<-" para atribuição e o "=" para as demais situações.
+_x_ é o argumento que já havíamos utilizado anteriormente e indica em que objeto a função _head_ será aplicada. Dica: você pode omitir tanto "x =" quanto "n =" se você já conhecer a ordem de cada argumento no uso da função. Veja que neste caso estamos utilizando o símbolo "=" sem fazer a atribuição de dados a um objeto, mas para atribuir valores (ou objetos) aos argumento de uma função. Para não haver confusão é preferível usar o símbolo "<-" para atribuição e o "=" para as demais situações. Voltaremos adiante a essa discussão.
 
 ## Pausa para um comentário
 
@@ -154,26 +143,27 @@ Vamos esquecer o _data frame_ com o qual estávamos trabalhando até agora. Para
 rm(mtcars)
 ```
 
-Vamos fazer isso de forma menos entediante. Vamos montar um banco de dados de notícias.
+Vamos seguir este tutorial de forma menos entediante. Vamos montar um banco de dados de notícias.
 
-Escolha 2 jornais ou portais de notícias diferentes. Vá em cada um deles e colete 3 notícias. Em casa notícia, colete as seguintes informações:
+Escolha 2 jornais ou portais de notícias diferentes. Vá em cada um deles e colete 2 notícias quaisquer. Em casa notícia, colete as seguintes informações:
 
-- Nome do jornal ou portal
+- Nome do jornal ou portal (pode abreviar)
 - Data da notícia (não precisa coletar a hora)
 - Título
 - Autor(a)
-- Número de palavras no texto (use o MS Word ou Libre Office se precisar - chute se tiver preguiça)
+- Número de palavras no texto (use o MS Word ou Libre Office se precisar - chute se tiver preguiça, mas não perca tempo contando)
 - Marque 1 se a notícia for sobre política e 0 caso contrário
-- Marque 1 se a notícia for sobre esporte e 0 caso contrário
 - Marque TRUE se a notícia contiver vídeo e FALSE caso contrário
 
-Insira as informações nos vetores em ordem de coleta das notícias
+Se quiser ganhar tempo, pode apenas copiar os exemplos do tutorial e repetir a tarefa depois da aula.
+
+Insira as informações nos vetores em ordem de coleta das notícias.
 
 Com cada informação, vamos construir um vetor. Vejam meus exemplos. Começando com o nome do jornal ou portal:
 
 ```{r}
 jornal <- c("The Guardian", "The Guardian", "The Guardian", "Folha de São Paulo", 
-            "Folha de São Paulo", "Folha de São Paulo")
+            "Folha de São Paulo")
 ```
 
 Opa, calma! Temos um monte de coisas novas aqui!
@@ -182,13 +172,13 @@ A primeira delas é: se você criou corretamente o vetor _jornal_, então nada a
 
 Objetos não são nada mais do que um nome usado para armazenar dados na memória RAM (temporária) do seu computador. No exemplo acima, _jornal_ é o objeto e o vetor é a informação armazenada. Uma vez criado, o objeto está disponível para ser usado novamente, pois ele ficará disponível no __workspace__. Veremos adiante que podemos criar um _data frame_ a partir de vários vetores armazenados na memória. Especificamente no RStudio, os objetos ficam disponíveis no painel _environment_ (que provavelmente está no canto direito superior da sua tela).
 
-Posso usar o símbolo __=__ no lugar de __<-__? Sim. Funciona. Mas nem sempre funciona e esta substituição é uma fonte grande de confusão. Quando entendermos um pouco mais da sintaxe da linguagem R ficará claro.
+Posso usar o símbolo __=__ no lugar de __<-__? Sim. Funciona. Mas nem sempre funciona e esta substituição é uma fonte grande de confusão. Quando entendermos um pouco mais da sintaxe da linguagem R ficará claro. Por enquanto, quando for atribuir um nome a um objeto recém criado, use __<-__.
 
 Se o objetivo fosse criar o vetor sem "guardá-lo" em um objeto, bastaria repetir a parte do código acima que começa após o símbolo de atribuição. _c_ ( do inglês "concatenate") é a função do R que combina valores de texto, número ou lógicos (ainda não falamos destes últimos) em um vetor. É um função muito utilizada ao programar em R.
 
 ```{r}
 c("The Guardian", "The Guardian", "The Guardian", "Folha de São Paulo",
-  "Folha de São Paulo", "Folha de São Paulo")
+  "Folha de São Paulo")
 ```
 
 Note que há uma quebra de linha no código. Não há problema algum. Uma vez que o parêntese que indica o fim do vetor não foi encontrado, o R entende o que estiver na próxima como continuidade do código (e, portanto, do vetor). Dica: quebras de linha ajudam a vizualizar o código e com o tempo você também usará.
@@ -198,31 +188,26 @@ Vamos seguir com nossa tarefa de criar vetores. Já temos o vetor jornal (que vo
 ```{r}
 # Data
 # Obs: ha uma funcao em R com nome "data".
-# Evite dar a objetos nome de funcoes
-date <- c("10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017")
+# Evite dar a objetos nome de funcoes existentes
+data_noticia <- c("10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017")
 
 # Titulo
 titulo <- c("'Trump lies all the time': Bernie Sanders indicts president's assault on democracy",
-            "Bruno, still guilty of murder but bafflingly welcome to walk back into football",
             "BBC interviewee interrupted by his children live on air – video",
             "Bolsista negra é hostilizada em atividade no campus da FGV de SP",
-            "Meninas podem ser o que quiserem, inclusive matemáticas",
-            "Favela de Paraisópolis tem novo incêndio em menos de dez dias")
+            "Meninas podem ser o que quiserem, inclusive matemáticas")
 
 # Autor
-autor <- c("Ed Pilkington ", "Barney Ronay", NA, "Joana Cunha; Jairo Marques", "Marcelo Viana", NA)
+autor <- c("Ed Pilkington ", NA, "Joana Cunha; Jairo Marques", "Marcelo Viana")
 
 # Numero de caracteres
-caracteres <- c(5873, 6301, 358, 3644, 4086, 3454)
+n_caracteres <- c(5873, 207, 1358, 3644)
 
 # Conteudo sobre politica
-politica <- c(1, 0, 0, 0, 0, 0)
-
-# Conteudo sobre esporte
-esporte <- c(0, 1, 0, 0, 0, 0)
+politica <- c(1, 0, 0, 0)
 
 # Contem video
-video <- c(FALSE, FALSE, TRUE, FALSE, FALSE, TRUE)
+video <- c(TRUE, TRUE, FALSE, FALSE)
 ```
 
 Para onde vão os objetos de R criados? Para o workspace. Se quisermos uma fotografia do nosso workspace, usamos a função _ls_, com parêntese vazio (ou seja, sem argumentos além dos pré-estabelecidos):
@@ -250,21 +235,22 @@ Obviamente, se estiverem pareados, os vetores devem ter o mesmo comprimento. Há
 ```{r}
 length(jornal)
 ```
-
 Vamos criar com os vetores que construímos um _data frame_ com o nome _dados_. Vamos produzí-lo, discutir a função _data.frame_ e depois examiná-lo:
 
 ```{r}
-dados <- data.frame(jornal, date, titulo, autor, caracteres, politica, esporte, video)
+dados <- data.frame(jornal, data_noticia, titulo, autor, n_caracteres, politica, video)
 ```
 
 A função _data.frame_ cria um _data frame_ a partir de vetores ou matrizes (que ainda não vimos). Quando criamos a partir de vetores, automaticamente os nomes das variáveis (colunas) no novo objeto serão os nomes dos vetores. Mas poderíamos querer nomes novos (por exemplo, em inglês). Bastaria fazer:
 
 ```{r}
 dados <- data.frame(newspaper = jornal, 
-                    date = date, 
+                    date = data_noticia, 
                     title = titulo, 
                     author = autor, 
-                    n_char = caracteres, politica, esporte, video)
+                    n_char = n_caracteres, 
+                    politics = politica,
+                    video)
 ```
 
 Usando as funções que aprendemos nessa aula:
@@ -290,10 +276,10 @@ __doubles__, __integers__, __characters__, __logicals__, __complex__, e __raw__.
 
 ### Doubles
 
-_doubles_ são utilizados para guardar números. Por exemplo, o vetor _caracteres_, que indica o número de caracteres em cada texto, é do tipo _double_ (ops, desculpe por criar um vetor com este nome para números!). Vamos repetir o comando que cria este vetor:
+_doubles_ são utilizados para guardar números. Por exemplo, o vetor _n\_caracteres_, que indica o número de caracteres em cada texto, é do tipo _double_. Vamos repetir o comando que cria este vetor:
 
 ```{r}
-caracteres <- c(5873, 6301, 358, 3644, 4086, 3454)
+n_caracteres <- c(5873, 6301, 358, 3644, 4086, 3454)
 ```
 
 Com a função _typeof_ você consegue descobrir o tipo de cada vetor:
@@ -309,16 +295,14 @@ caracteres + 1
 caracteres * 2
 sum(caracteres)
 ```
-
 Note que as duas primeiras funções retornam vetores de tamanho igual ao original, enquanto a aplicação da função _sum_ a um vetor retorna apenas um número, ou melhor, um __vetor atômico__ (que contém um único elemento). Tal como aplicamos as operações matemáticas e a função _sum_, podemos aplicar diversas outras operações matemáticas e funções que descrevem de forma sintética os dados (média, desvio padrão, etc) a vetores numéricos. Veremos operações e funções com calma num futuro breve.
 
 ### Logicals
 
-Os vetores _politica_ e _esporte_ também são do tipo _double_. Mesmo registrando apenas a presença e ausência de uma característica, os valores inseridos são números. Mas e o vetor _video_? Vejamos:
+O vetor _politica_ também são do tipo _double_. Mesmo registrando apenas a presença e ausência de uma característica, os valores inseridos são números. Mas e o vetor _video_? Vejamos:
 
 ```{r}
 typeof(politica)
-typeof(esporte)
 typeof(video)
 ```
 
@@ -330,12 +314,11 @@ O que acontece se fizermos operações matemáticas com vetores lógicos?
 video + 1
 sum(video)
 ```
-
-Automaticamente, o R transforma FALSE em 0 e TRUE em 1. Por exemplo, ao somar 4 FALSE e 2 TRUE obtemos o valor 2, que é o total de notícias que contêm vídeos.
+Automaticamente, o R transforma FALSE em 0 e TRUE em 1. Por exemplo, ao somar 2 FALSE e 2 TRUE obtemos o valor 2, que é o total de notícias que contêm vídeos.
 
 ### Character
 
-Finalmente, vetores que contêm texto são do tipo _character_. O nome dos jornais, data, título e autor são informações que foram inseridas como texto (lembre-se, o R não sabe por enquanto que no vetor _date_ há uma data). Operações matemáticas não valem pare estes vetores.
+Finalmente, vetores que contêm texto são do tipo _character_. O nome dos jornais, data, título e autor são informações que foram inseridas como texto (lembre-se, o R não sabe por enquanto que no vetor _data\_noticia_ há uma data). Operações matemáticas não valem pare estes vetores.
 
 ## Tipo e classe
 
@@ -345,11 +328,11 @@ Veremos em momento oportuno que os objetos em R também tem um atributo denomina
 
 R é uma linguagem extremamente flexível quanto ao formato de dados que podem ser importados. Comumente, utilizaremos dados provenientes de arquivos de texto (.txt, .csv, .tab, etc) ou de arquivos de excel transformados em arquivos de texto. Mas estas estão longe de serem as únicas possibilidades.
 
-Com o pacote _foreign_ abriremos arquivos produzidos por outros softwares -- como Stata e SPSS. Podemos também conectar o R a sistemas de gerenciamento de bancos de dados relacionais, como o SQL Server. Finalmente, podemos receber via web arquivos em formato XML ou Json e transformá-los em _data frames_ em poucos passos.
+Com o pacote _foreign_ abriremos arquivos produzidos por outros softwares -- como Stata e SPSS. Podemos também conectar o R a sistemas de gerenciamento de bancos de dados relacionais (SGBD), como o SQL Server. Finalmente, podemos receber via web arquivos em formato XML ou Json e transformá-los em _data frames_ em poucos passos.
 
-Vamos começar com o exemplo simples. Baixe os dados com resultados eleitorais (votação nominal por município e zona) do Acre em 2014 disponíveis [aqui] (https://raw.githubusercontent.com/leobarone/FLS6397/master/data/votacao_candidato_munzona_2014_AC.txt) (clique em "Save link as" e faça o download o vá [aqui] (https://github.com/leobarone/FLS6397/blob/master/data/votacao_candidato_munzona_2014_AC.txt) e clique em download). Estes dados são provenientes do [Repositório de Dados Eleitorais] (http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais) do TSE. O Tribunal disponibiliza para cada ano eleitoral arquivos por UF em formato de texto (.txt) e numa pasta comprimida em formato .zip.
+Vamos começar com o exemplo simples. Baixe os dados com resultados eleitorais (votação nominal por município e zona) do Acre em 2014 disponíveis [aqui](https://raw.githubusercontent.com/leobarone/FLS6397/master/data/votacao_candidato_munzona_2014_AC.txt) (clique em "Save link as" e faça o download ou vá [aqui](https://github.com/leobarone/FLS6397/blob/master/data/votacao_candidato_munzona_2014_AC.txt) e clique em download). Estes dados são provenientes do [Repositório de Dados Eleitorais](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais) do TSE. O Tribunal disponibiliza para cada ano eleitoral arquivos por UF em formato de texto (.txt) e numa pasta comprimida em formato .zip.
 
-Obs: se você tiver algum problema com o download, encoding, ou outro, pode ir direto ao Repositório e fazer o download de lá. Quando aprendermos algo de github esse problema deixará de existir.
+Obs: se você tiver algum problema com o download, encoding, ou outro, pode ir direto ao Repositório e fazer o download de lá.
 
 Diferentemente de outros softwares, no R a "interface Windows", aka "menus e janelas", não oferece a possibilidade executar funções. Porém, na aba _environment_ há um botão muito útil chamado "Import Dataset", que serve para importar para o _workspace_ arquivos em qualquer formato de texto ("From CSV"), MS Excel, Stata, SAS e SPSS.
 
@@ -413,7 +396,7 @@ Uma vez que importamos os dados, podemos trabalhar com as colunas do _data frame
 mean(V29)
 ```
 
-Opa! O vetor V29 não foi encontrado! Isso ocorre porque V29 não é um objeto no nosso _workspace_. Como podemos ter mais de um _data frame_, se houvesse dois _data frames_ com variáveis com nome V29 haveria confusão. O vetor com o qual queremos trabalhar está dentro do objeto _votacao\_candidato\_munzona\_2014\_AC_. Indicamos sua localização colocando primeiro o nome do _data frame_, seguido do símbolo $ e depois do nome da coluna:
+Opa! O vetor V29 não foi encontrado! Isso ocorre porque V29 não é um objeto no nosso _workspace_. Como podemos ter mais de um _data frame_, se houvesse mais de um _data frame_ com a variável com nome V29 haveria confusão. O vetor com o qual queremos trabalhar está dentro do objeto _votacao\_candidato\_munzona\_2014\_AC_. Indicamos sua localização colocando primeiro o nome do _data frame_, seguido do símbolo $ e depois do nome da coluna:
 
 ```{r, error=TRUE}
 mean(votacao_candidato_munzona_2014_AC$V29)
@@ -421,4 +404,4 @@ mean(votacao_candidato_munzona_2014_AC$V29)
 
 ## Paramos por aqui
 
-Fizemos neste tutorial uma rápida introdução a vetores e _data frames_. Vamos agora dar inúmeros passos para trás e aprender os fundamentos da linguagem R nos próximos tutoriais. De um forma ou de outra, tenha certeza de que você já começou a se acostumar com a linguagem, sua sintaxe, léxico e peculiaridades.
+Fizemos neste tutorial uma rápida introdução a vetores e _data frames_. Vamos agora dar inúmeros passos para trás e aprender os fundamentos da linguagem R. De um forma ou de outra, tenha certeza de que você já começou a se acostumar com a linguagem, sua sintaxe, léxico e peculiaridades.
