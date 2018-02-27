@@ -291,9 +291,9 @@ typeof(n_caracteres)
 É possível fazer operações com vetores númericos (_integers_ também são vetores numéricos, mas vamos esquecer deles por um segundo e fazer _double_ sinônimo de numérico). Por exemplo, podemos somar 1 a todos os seus elementos, dobrar o valor de cada elemento ou somar todos:
 
 ```{r}
-caracteres + 1
-caracteres * 2
-sum(caracteres)
+n_caracteres + 1
+n_caracteres * 2
+sum(n_caracteres)
 ```
 Note que as duas primeiras funções retornam vetores de tamanho igual ao original, enquanto a aplicação da função _sum_ a um vetor retorna apenas um número, ou melhor, um __vetor atômico__ (que contém um único elemento). Tal como aplicamos as operações matemáticas e a função _sum_, podemos aplicar diversas outras operações matemáticas e funções que descrevem de forma sintética os dados (média, desvio padrão, etc) a vetores numéricos. Veremos operações e funções com calma num futuro breve.
 
