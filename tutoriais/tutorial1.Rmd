@@ -189,7 +189,7 @@ Vamos seguir com nossa tarefa de criar vetores. Já temos o vetor jornal (que vo
 # Data
 # Obs: ha uma funcao em R com nome "data".
 # Evite dar a objetos nome de funcoes existentes
-data_noticia <- c("10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017")
+data_noticia <- c("10/03/2017", "10/03/2017", "10/03/2017", "10/03/2017")
 
 # Titulo
 titulo <- c("'Trump lies all the time': Bernie Sanders indicts president's assault on democracy",
