@@ -162,7 +162,7 @@ Insira as informações nos vetores em ordem de coleta das notícias.
 Com cada informação, vamos construir um vetor. Vejam meus exemplos. Começando com o nome do jornal ou portal:
 
 ```{r}
-jornal <- c("The Guardian", "The Guardian", "The Guardian", "Folha de São Paulo", 
+jornal <- c("The Guardian", "The Guardian", "Folha de São Paulo", 
             "Folha de São Paulo")
 ```
 
@@ -177,7 +177,7 @@ Posso usar o símbolo __=__ no lugar de __<-__? Sim. Funciona. Mas nem sempre fu
 Se o objetivo fosse criar o vetor sem "guardá-lo" em um objeto, bastaria repetir a parte do código acima que começa após o símbolo de atribuição. _c_ ( do inglês "concatenate") é a função do R que combina valores de texto, número ou lógicos (ainda não falamos destes últimos) em um vetor. É um função muito utilizada ao programar em R.
 
 ```{r}
-c("The Guardian", "The Guardian", "The Guardian", "Folha de São Paulo",
+c("The Guardian", "The Guardian", "Folha de São Paulo",
   "Folha de São Paulo")
 ```
 
