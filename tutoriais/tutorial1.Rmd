@@ -285,7 +285,7 @@ n_caracteres <- c(5873, 6301, 358, 3644, 4086, 3454)
 Com a função _typeof_ você consegue descobrir o tipo de cada vetor:
 
 ```{r}
-typeof(caracteres)
+typeof(n_caracteres)
 ```
 
 É possível fazer operações com vetores númericos (_integers_ também são vetores numéricos, mas vamos esquecer deles por um segundo e fazer _double_ sinônimo de numérico). Por exemplo, podemos somar 1 a todos os seus elementos, dobrar o valor de cada elemento ou somar todos:
