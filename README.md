@@ -8,8 +8,9 @@ Data: 27/02/2018, das 14h as 18h, e 28/02/2018, das 9h às 12h e das 14h às 17h
 
 ## Apresentação
 
-## Tutoriais
+O curso é uma introdução à linguagem R e à manipulação de conjuntos de dados para alunos de pós-graduação e pesquisadores em demografia e ciências sociais. O curso está divido em três partes. Na primeira, veremoss rapidamente os fundamentos da linguagem R. Na sequência, trabalharemos com as duas principais "gramáticas" de manipulação de conjuntos de dados em R, com enfâse no uso do pacote _dplyr_. Finalmente, veremos como utilizar o que foi aprendido nas duas primeiras partes para manipular bases de dados populacionais, em particular a PNAD (IBGE) para a produção de tabelas simples e gráficos.
 
+## Tutoriais
 
 ### Parte 1 - O Básico da Linguagem R
 - [Tutorial 1](https://github.com/leobarone/ifch_intro_r/blob/master/tutoriais/tutorial1.Rmd) - Básico da Linguagem - Introdução a Data Frames 
