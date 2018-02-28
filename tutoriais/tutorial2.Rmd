@@ -428,9 +428,9 @@ print(f_tamanho)
 Como o R segue o ordenamento alfabético, os códigos numéricos 1, 2 e 3 estão associados a "alto", "baixo" e "medio", respectivamente. Mas qual é o problema de não ordenarmos? Veja abaixo:
 
 ```{r, error = T}
-f_yes_no[1]
-f_yes_no[2]
-f_yes_no[1] > f_yes_no[2]
+f_tamanho[1]
+f_tamanho[2]
+f_tamanho[1] > f_tamanho[2]
 ```
 
 Sem ordenarmos, não podemos comparar os níveis e estamos assumindo a variável como sendo nominal.
