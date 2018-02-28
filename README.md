@@ -20,9 +20,9 @@ O curso é uma introdução à linguagem R e à manipulação de conjuntos de da
 
 ### Parte 2 - Manipulação de Conjuntos de Dados com R - 28/02/2018, das 9h às 12h 
 
-- Manipulação de dados com a gramática básica do R
-- Manipulação de dados com a gramática do dplyr
-- Bases de dados relacionais
+- [Tutorial 5](https://github.com/leobarone/ifch_intro_r/blob/master/tutoriais/tutorial5.Rmd) - Manipulação de dados com a gramática básica do R
+- [Tutorial 6](https://github.com/leobarone/ifch_intro_r/blob/master/tutoriais/tutorial6.Rmd) - Manipulação de dados com a gramática do dplyr
+- [Tutorial 7](https://github.com/leobarone/ifch_intro_r/blob/master/tutoriais/tutorial7.Rmd) - Bases de dados relacionais com a gramática do dplyr
 
 ### Parte 3 - PNAD, tabelas e gráficos - 28/02/2018, das 14h às 17h 
 

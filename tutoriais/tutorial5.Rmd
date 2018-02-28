@@ -1,6 +1,6 @@
 # Manipulação de dados com a gramática básica do R
 
-A esta altura do campeonato, você já tem bastante recursos para programar em R. Combinando seu conhecimento sobre vetores, _data frames_, tipos de dados, loops, condicionais e funções dá para fazer um bocado de coisas legais. Depois deste tutorial, voltaremos a esteś tópicos para exercitar o que aprendemos.
+A esta altura do campeonato, você já tem bastante recursos para programar em R. Combinando seu conhecimento sobre vetores, _data frames_, tipos de dados, loops, condicionais e funções dá para fazer um bocado de coisas legais. Depois deste tutorial, voltaremos a estes tópicos para exercitar o que aprendemos.
 
 Falta, porém, algo essencial e muito próprio da linguagem R: como manipular variáveis e observações em um _data frame_. Boa parte da tarefa de organização de dados para a pesquisa se resume ao que faremos neste tópico. Este é o uso da lingaugem R que se aproxima do uso de outras ferramantas como SPSS, Stata e SAS.
 
@@ -16,7 +16,7 @@ Vamos nos adaptar a abrir dados com funções dos pacotes _readr_, _data.table_ 
 
 ```{r}
 library(readr)
-url_fake_data <- "https://raw.githubusercontent.com/leobarone/FLS6397/master/data/fake_data.csv"
+url_fake_data <- "https://raw.githubusercontent.com/leobarone/ifch_intro_r/master/data/fake_data.csv"
 fake <- read_delim(url_fake_data, delim = ";", col_names = T)
 ```
 
