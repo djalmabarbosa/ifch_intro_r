@@ -109,7 +109,7 @@ Com certa frequência, obtemos dados cujos nomes das colunas são compostos, con
 names(saques_amostra_201701)
 ```
 
-O primeiro argumento da função _rename_ deve ser a base de dados cujos nomes das variáveis serão renomeados. Depois da primeir vírgula, inserimos todos as modificações de nomes, novamente separadas por vírgulas, e da seguinte maneira. Exemplo: nome\_novo = nome\_velho. Caso os nomes tenha espaço, como no nosso exemplo, é preciso usar o acento agudo antes e depois do nome antigo para que o R entenda onde ele começa e termina. Exemplo: nome|_novo = \`Nome Velho\`. Veja o exemplo, em que damos novos nomes às variáveis "UF" e "Nome Município"
+O primeiro argumento da função _rename_ deve ser a base de dados cujos nomes das variáveis serão renomeados. Depois da primeir vírgula, inserimos todos as modificações de nomes, novamente separadas por vírgulas, e da seguinte maneira. Exemplo: nome\_novo = nome\_velho. Caso os nomes tenha espaço, como no nosso exemplo, é preciso usar o acento de crase antes e depois do nome antigo para que o R entenda onde ele começa e termina. Exemplo: nome|_novo = \`Nome Velho\`. Veja o exemplo, em que damos novos nomes às variáveis "UF" e "Nome Município"
 
 ```{r}
 saques_amostra_201701 <- rename(saques_amostra_201701, uf = UF, munic = `Nome Município`)

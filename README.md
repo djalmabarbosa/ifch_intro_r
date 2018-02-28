@@ -26,6 +26,9 @@ O curso é uma introdução à linguagem R e à manipulação de conjuntos de da
 
 ### Parte 3 - PNAD, tabelas e gráficos - 28/02/2018, das 14h às 17h 
 
+- [Tutorial 8](https://github.com/leobarone/ifch_intro_r/blob/master/tutoriais/tutorial8.Rmd) - PNAD no R: manipulação com dplyr e com o pacote survey
 
-## Bases de dados
+### Onde seguir estudando
+
+
 
